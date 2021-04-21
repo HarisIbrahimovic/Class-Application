@@ -38,6 +38,7 @@
         android:layout_margin="10dp"
         android:textColorHint="#9E9D9D"
         android:hint="Password"
+        android:inputType="textPassword"
         android:textColor="@color/white"
         android:padding="10dp"
         android:id="@+id/passSignUp"
@@ -48,6 +49,7 @@
         android:textSize="20sp"
         android:layout_margin="10dp"
         android:textColorHint="#9E9D9D"
+        android:inputType="textPassword"
         android:hint="Confirm Password"
         android:textColor="@color/white"
         android:padding="10dp"
@@ -69,15 +71,7 @@
         android:layout_height="wrap_content"
         android:text="Sign up"
         android:id="@+id/signupButton"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Already have an accout? Log in here!"
-        android:textColor="@color/white"
-        android:id="@+id/signUpText"
-        android:textSize="15sp"
-        />
+
 
 
 </LinearLayout>

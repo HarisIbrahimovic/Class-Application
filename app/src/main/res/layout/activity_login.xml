@@ -30,6 +30,7 @@
         android:textColor="@color/white"
         android:hint="Password"
         android:padding="10dp"
+        android:inputType="textPassword"
         android:id="@+id/passwordLogin"
         />
     <androidx.appcompat.widget.AppCompatButton
@@ -37,15 +38,6 @@
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/loginButton"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/white"
-        android:text="Dont have an account? Sign up here!"
-        android:id="@+id/loginText"
-        android:textSize="15sp"
-        />
 
 
 </LinearLayout>

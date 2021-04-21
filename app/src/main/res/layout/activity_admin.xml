@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
+            android:id="@+id/tabLayoutAdmin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/homepage"
@@ -24,9 +24,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="50dp"
-            android:id="@+id/viewPager"/>
+            android:id="@+id/viewPagerAdmin"/>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/logoutButton"
+            android:id="@+id/logoutButtonAdmin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
