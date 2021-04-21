@@ -28,7 +28,6 @@ public class loginActivity extends AppCompatActivity {
     private TextView loginText;
     private FirebaseAuth auth;
     private ProgressDialog mDialog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -41,7 +41,6 @@ public class adminActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), loginActivity.class));
             }
         });
-
         class ViewPagerAdapter extends FragmentPagerAdapter {
             private ArrayList<Fragment> fragments;
             private ArrayList<String> titles;
@@ -50,31 +49,25 @@ public class adminActivity extends AppCompatActivity {
                 this.fragments = new ArrayList<>();
                 this.titles = new ArrayList<>();
             }
-
             @NonNull
             @Override
             public Fragment getItem(int position) {
                 return fragments.get(position);
             }
-
             @Override
             public int getCount() {
                 return fragments.size();
             }
-
-
             public void addFragment(Fragment fragment,String title){
                 fragments.add(fragment);
                 titles.add(title);
             }
-
             @Nullable
             @Override
             public CharSequence getPageTitle(int position) {
                 return  titles.get(position);
             }
         }
-
         ViewPagerAdapter  viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragment(new UsersFragment(),"Users");
         viewPagerAdapter.addFragment(new Exams(),"Exams");

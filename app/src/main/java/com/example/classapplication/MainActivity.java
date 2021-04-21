@@ -24,7 +24,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FloatingActionButton logOutButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         ViewPager viewPager = findViewById(R.id.viewPager);
         class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -54,41 +52,29 @@ public class MainActivity extends AppCompatActivity {
                 this.fragments = new ArrayList<>();
                 this.titles = new ArrayList<>();
             }
-
-
-
             @NonNull
             @Override
             public Fragment getItem(int position) {
                 return fragments.get(position);
             }
-
             @Override
             public int getCount() {
                 return fragments.size();
             }
-
-
             public void addFragment(Fragment fragment,String title){
                 fragments.add(fragment);
                 titles.add(title);
             }
-
             @Nullable
             @Override
             public CharSequence getPageTitle(int position) {
                 return  titles.get(position);
             }
         }
-
         ViewPagerAdapter  viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragment(new UsersFragment(),"Users");
         viewPagerAdapter.addFragment(new Exams(),"Exam");
-
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
-
-
-
 }
