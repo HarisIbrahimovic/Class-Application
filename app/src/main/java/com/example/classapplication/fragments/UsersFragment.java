@@ -13,12 +13,8 @@ import android.widget.Button;
 import com.example.classapplication.MainActivity;
 import com.example.classapplication.R;
 import com.example.classapplication.SignIn.SignUp;
+import com.example.classapplication.authuser.deleteUser;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link UsersFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class UsersFragment extends Fragment {
     private Button showAll;
     private Button addUser;
@@ -58,6 +54,18 @@ public class UsersFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity().getApplicationContext(), SignUp.class));
+            }
+        });
+        deleteUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity().getApplicationContext(), com.example.classapplication.authuser.deleteUser.class));
+            }
+        });
+        modiflyUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity().getApplicationContext(), com.example.classapplication.authuser.modifyActivity.class));
             }
         });
         return view;
