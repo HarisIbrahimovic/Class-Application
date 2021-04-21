@@ -76,6 +76,10 @@ public class SignUp extends AppCompatActivity {
         });
     }
     private void RegisterNow(String name, String userEmail,String userPass,String userCourse) {
+        if(userPass.length()<8){
+            Toast.makeText(getApplicationContext(),"Password too short. ",Toast.LENGTH_SHORT).show();
+            return;
+        }
         auth.createUserWithEmailAndPassword(userEmail,userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -86,6 +90,8 @@ public class SignUp extends AppCompatActivity {
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("id",userId);
                 hashMap.put("username",name);
+                hashMap.put("email",userEmail);
+                hashMap.put("password",userPass);
                 hashMap.put("course",userCourse);
                 databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
