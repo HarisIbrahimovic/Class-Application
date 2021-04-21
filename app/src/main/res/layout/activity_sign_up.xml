@@ -18,8 +18,7 @@
         android:textColorHint="@color/white"
         android:hint="Name"
         android:padding="10dp"
-        android:id="@+id/userName"
-        />
+        android:id="@+id/userName"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,8 +28,7 @@
         android:hint="Email"
         android:padding="10dp"
         android:textColor="@color/white"
-        android:id="@+id/emailSignUp"
-        />
+        android:id="@+id/emailSignUp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,8 +39,7 @@
         android:inputType="textPassword"
         android:textColor="@color/white"
         android:padding="10dp"
-        android:id="@+id/passSignUp"
-        />
+        android:id="@+id/passSignUp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,8 +50,7 @@
         android:hint="Confirm Password"
         android:textColor="@color/white"
         android:padding="10dp"
-        android:id="@+id/confirmPassword"
-        />
+        android:id="@+id/confirmPassword"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,15 +59,11 @@
         android:textColorHint="@color/white"
         android:hint="Course (IT or CS)"
         android:padding="10dp"
-        android:id="@+id/course"
-        />
+        android:id="@+id/course"/>
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Sign up"
         android:background="@drawable/buttons"
         android:id="@+id/signupButton"/>
-
-
-
 </LinearLayout>

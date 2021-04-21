@@ -24,18 +24,12 @@ public class UsersFragment extends Fragment {
     private Button addUser;
     private Button deleteUser;
     private Button modiflyUser;
-
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-
     private String mParam1;
     private String mParam2;
-
     public UsersFragment() {
-        // Required empty public constructor
     }
-
     public static UsersFragment newInstance(String param1, String param2) {
         UsersFragment fragment = new UsersFragment();
         Bundle args = new Bundle();
@@ -44,7 +38,6 @@ public class UsersFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +46,6 @@ public class UsersFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,14 +54,12 @@ public class UsersFragment extends Fragment {
         modiflyUser = view.findViewById(R.id.modifyUser);
         deleteUser = view.findViewById(R.id.deleteUser);
         showAll = view.findViewById(R.id.showAllUsers);
-
         addUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity().getApplicationContext(), SignUp.class));
             }
         });
-
         return view;
     }
 }

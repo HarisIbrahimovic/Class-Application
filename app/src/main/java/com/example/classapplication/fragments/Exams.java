@@ -11,26 +11,13 @@ import android.widget.Button;
 
 import com.example.classapplication.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Exams#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Exams extends Fragment {
-
-
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     public Exams() {
-        // Required empty public constructor
     }
-
-
     public static Exams newInstance(String param1, String param2) {
         Exams fragment = new Exams();
         Bundle args = new Bundle();
@@ -39,7 +26,6 @@ public class Exams extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +34,6 @@ public class Exams extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
