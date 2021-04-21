@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+
+    android:layout_height="match_parent"
+    tools:context=".fragments.UsersFragment">
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttons"
+        android:textSize="15sp"
+        android:layout_margin="10dp"
+        android:text="Show ALl users"
+        android:id="@+id/showAllUsers"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_margin="10dp"
+        android:text="Add User"
+        android:background="@drawable/buttons"
+        android:id="@+id/AddUser"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_margin="10dp"
+        android:text="Delete User"
+        android:background="@drawable/buttons"
+        android:id="@+id/deleteUser"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_margin="10dp"
+        android:background="@drawable/buttons"
+        android:text="Modify User"
+        android:id="@+id/modifyUser"/>
+
+</LinearLayout>

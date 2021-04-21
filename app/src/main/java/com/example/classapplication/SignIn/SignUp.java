@@ -32,7 +32,6 @@ public class SignUp extends AppCompatActivity {
     private EditText password;
     private EditText cPassword;
     private EditText userName;
-    private TextView signUpText;
     private EditText course;
     private DatabaseReference databaseReference;
     private FirebaseAuth auth;
@@ -75,9 +74,7 @@ public class SignUp extends AppCompatActivity {
                 RegisterNow(name,Email,Password,Course);
             }
         });
-
     }
-
     private void RegisterNow(String name, String userEmail,String userPass,String userCourse) {
         auth.createUserWithEmailAndPassword(userEmail,userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -94,7 +91,6 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             progressDialog.dismiss();
                             finish();
                         }else progressDialog.dismiss();

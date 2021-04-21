@@ -1,5 +1,6 @@
 package com.example.classapplication.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,40 +8,36 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.classapplication.MainActivity;
 import com.example.classapplication.R;
+import com.example.classapplication.SignIn.SignUp;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Test2Fragment#newInstance} factory method to
+ * Use the {@link UsersFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Test2Fragment extends Fragment {
+public class UsersFragment extends Fragment {
+    private Button showAll;
+    private Button addUser;
+    private Button deleteUser;
+    private Button modiflyUser;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+
     private String mParam1;
     private String mParam2;
 
-    public Test2Fragment() {
+    public UsersFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Test2Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Test2Fragment newInstance(String param1, String param2) {
-        Test2Fragment fragment = new Test2Fragment();
+    public static UsersFragment newInstance(String param1, String param2) {
+        UsersFragment fragment = new UsersFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,7 +57,19 @@ public class Test2Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_test2, container, false);
+        View view = inflater.inflate(R.layout.fragment_users, container, false);
+        addUser = view.findViewById(R.id.AddUser);
+        modiflyUser = view.findViewById(R.id.modifyUser);
+        deleteUser = view.findViewById(R.id.deleteUser);
+        showAll = view.findViewById(R.id.showAllUsers);
+
+        addUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity().getApplicationContext(), SignUp.class));
+            }
+        });
+
+        return view;
     }
 }

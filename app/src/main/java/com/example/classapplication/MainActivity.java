@@ -8,26 +8,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.classapplication.SignIn.loginActivity;
-import com.example.classapplication.fragments.Test2Fragment;
-import com.example.classapplication.fragments.TestFragment;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.classapplication.fragments.UsersFragment;
+import com.example.classapplication.fragments.Exams;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -92,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         ViewPagerAdapter  viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.addFragment(new Test2Fragment(),"Chats");
-        viewPagerAdapter.addFragment(new TestFragment(),"Users");
+        viewPagerAdapter.addFragment(new UsersFragment(),"Users");
+        viewPagerAdapter.addFragment(new Exams(),"Exam");
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
