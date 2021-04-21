@@ -36,11 +36,12 @@ public class loginActivity extends AppCompatActivity {
         password = findViewById(R.id.passwordLogin);
         loginButton = findViewById(R.id.loginButton);
         loginText = findViewById(R.id.loginText);
-        String Email = email.getText().toString();
-        String Password = password.getText().toString();
+        mDialog = new ProgressDialog(this);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String Email = email.getText().toString();
+                String Password = password.getText().toString();
                 if(TextUtils.isEmpty(Email)||TextUtils.isEmpty(Password)){
                     Toast.makeText(getApplicationContext(), "Please fill in the fields!", Toast.LENGTH_SHORT).show();
                     return;
