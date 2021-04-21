@@ -33,6 +33,7 @@ public class SignUp extends AppCompatActivity {
     private EditText cPassword;
     private EditText userName;
     private TextView signUpText;
+    private EditText course;
     private DatabaseReference databaseReference;
     private FirebaseAuth auth;
     private ProgressDialog progressDialog;
@@ -46,9 +47,9 @@ public class SignUp extends AppCompatActivity {
         cPassword = findViewById(R.id.confirmPassword);
         signUpText = findViewById(R.id.signUpText);
         userName = findViewById(R.id.userName);
+        course = findViewById(R.id.course);
         auth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,8 +57,14 @@ public class SignUp extends AppCompatActivity {
                 String Password = password.getText().toString();
                 String confirm = cPassword.getText().toString();
                 String name = userName.getText().toString();
-                if(TextUtils.isEmpty(Email)||TextUtils.isEmpty(Password)||TextUtils.isEmpty(confirm)||TextUtils.isEmpty(name)){
+                String Course = course.getText().toString();
+                if(TextUtils.isEmpty(Email)||TextUtils.isEmpty(Password)||TextUtils.isEmpty(confirm)||TextUtils.isEmpty(name)||TextUtils.isEmpty(Course)){
                     Toast.makeText(getApplicationContext(),"Please fill in the fields!",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(Course.equals("IT")||Course.equals("CS")){
+                }else {
+                    Toast.makeText(getApplicationContext(),"Invalid course..",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(!Password.equals(confirm)){
@@ -66,10 +73,9 @@ public class SignUp extends AppCompatActivity {
                 }
                 progressDialog.setMessage("Just a momment please!");
                 progressDialog.show();
-                RegisterNow(name,Email,Password);
+                RegisterNow(name,Email,Password,Course);
             }
         });
-
         signUpText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,13 +83,9 @@ public class SignUp extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
-
     }
 
-    private void RegisterNow(String name, String userEmail,String userPass) {
+    private void RegisterNow(String name, String userEmail,String userPass,String userCourse) {
         auth.createUserWithEmailAndPassword(userEmail,userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -94,6 +96,7 @@ public class SignUp extends AppCompatActivity {
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("id",userId);
                 hashMap.put("username",name);
+                hashMap.put("course",userCourse);
                 databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
