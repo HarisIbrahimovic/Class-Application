@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/crop"
+    tools:context=".SignIn.loginActivity">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_margin="10dp"
+        android:textColorHint="#9E9D9D"
+        android:hint="Name"
+        android:padding="10dp"
+        android:id="@+id/userName"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        android:textColorHint="#9E9D9D"
+        android:hint="Email"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:id="@+id/emailSignUp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        android:textColorHint="#9E9D9D"
+        android:hint="Password"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:id="@+id/passSignUp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        android:textColorHint="#9E9D9D"
+        android:hint="Confirm Password"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:id="@+id/confirmPassword"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="Sign up"
+        android:id="@+id/signupButton"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Already have an accout? Log in here!"
+        android:textColor="@color/white"
+        android:id="@+id/signUpText"
+        android:textSize="15sp"
+        />
+
+
+</LinearLayout>
