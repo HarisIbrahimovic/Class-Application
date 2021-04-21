@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.classapplication.MainActivity;
 import com.example.classapplication.R;
+import com.example.classapplication.authuser.adminActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -35,7 +36,6 @@ public class loginActivity extends AppCompatActivity {
         email = findViewById(R.id.emailLogin);
         password = findViewById(R.id.passwordLogin);
         loginButton = findViewById(R.id.loginButton);
-        loginText = findViewById(R.id.loginText);
         mDialog = new ProgressDialog(this);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +44,11 @@ public class loginActivity extends AppCompatActivity {
                 String Password = password.getText().toString();
                 if(TextUtils.isEmpty(Email)||TextUtils.isEmpty(Password)){
                     Toast.makeText(getApplicationContext(), "Please fill in the fields!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(Email.equals("admin")&&Password.equals("admin")){
+                    startActivity(new Intent(getApplicationContext(), adminActivity.class));
+                    finish();
                     return;
                 }
                 mDialog.setMessage("Please wait...");
@@ -65,14 +70,5 @@ public class loginActivity extends AppCompatActivity {
                 });
             }
         });
-
-        loginText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),SignUp.class));
-                finish();
-            }
-        });
-
     }
 }

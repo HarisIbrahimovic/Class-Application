@@ -45,7 +45,6 @@ public class SignUp extends AppCompatActivity {
         email = findViewById(R.id.emailSignUp);
         password = findViewById(R.id.passSignUp);
         cPassword = findViewById(R.id.confirmPassword);
-        signUpText = findViewById(R.id.signUpText);
         userName = findViewById(R.id.userName);
         course = findViewById(R.id.course);
         auth = FirebaseAuth.getInstance();
@@ -76,13 +75,7 @@ public class SignUp extends AppCompatActivity {
                 RegisterNow(name,Email,Password,Course);
             }
         });
-        signUpText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),loginActivity.class));
-                finish();
-            }
-        });
+
     }
 
     private void RegisterNow(String name, String userEmail,String userPass,String userCourse) {
