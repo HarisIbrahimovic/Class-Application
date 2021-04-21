@@ -14,8 +14,8 @@ import android.view.View;
 
 import com.example.classapplication.R;
 import com.example.classapplication.SignIn.loginActivity;
-import com.example.classapplication.fragments.Test2Fragment;
-import com.example.classapplication.fragments.TestFragment;
+import com.example.classapplication.fragments.UsersFragment;
+import com.example.classapplication.fragments.Exams;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,7 +50,7 @@ public class adminActivity extends AppCompatActivity {
                 this.fragments = new ArrayList<>();
                 this.titles = new ArrayList<>();
             }
-            
+
             @NonNull
             @Override
             public Fragment getItem(int position) {
@@ -74,12 +74,11 @@ public class adminActivity extends AppCompatActivity {
                 return  titles.get(position);
             }
         }
+
         ViewPagerAdapter  viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.addFragment(new Test2Fragment(),"Chats");
-        viewPagerAdapter.addFragment(new TestFragment(),"Users");
+        viewPagerAdapter.addFragment(new UsersFragment(),"Users");
+        viewPagerAdapter.addFragment(new Exams(),"Exams");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
-
-
 }
