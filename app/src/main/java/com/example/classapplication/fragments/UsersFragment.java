@@ -14,6 +14,7 @@ import com.example.classapplication.MainActivity;
 import com.example.classapplication.R;
 import com.example.classapplication.SignIn.SignUp;
 import com.example.classapplication.authuser.deleteUser;
+import com.example.classapplication.authuser.displayAllUsersActivity;
 
 public class UsersFragment extends Fragment {
     private Button showAll;
@@ -50,6 +51,12 @@ public class UsersFragment extends Fragment {
         modiflyUser = view.findViewById(R.id.modifyUser);
         deleteUser = view.findViewById(R.id.deleteUser);
         showAll = view.findViewById(R.id.showAllUsers);
+        showAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity().getApplicationContext(), displayAllUsersActivity.class));
+            }
+        });
         addUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
