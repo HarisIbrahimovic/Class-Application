@@ -1,5 +1,6 @@
 package com.example.classapplication.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,8 +11,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.classapplication.R;
+import com.example.classapplication.adminExamActivites.createExamActivity;
+import com.example.classapplication.adminExamActivites.deleteExamActivity;
 
 public class Exams extends Fragment {
+    private Button newExam;
+    private Button deleteExam;
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
@@ -29,6 +35,7 @@ public class Exams extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -37,7 +44,23 @@ public class Exams extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_exams, container, false);
+        View view = inflater.inflate(R.layout.fragment_exams, container, false);
+
+        newExam = view.findViewById(R.id.createExam);
+        deleteExam = view.findViewById(R.id.deleteExam);
+        newExam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity().getApplicationContext(), createExamActivity.class));
+            }
+        });
+
+        deleteExam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity().getApplicationContext(), deleteExamActivity.class));
+            }
+        });
+        return view;
     }
 }
