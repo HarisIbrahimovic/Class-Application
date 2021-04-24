@@ -20,7 +20,7 @@ public class deleteExamActivity extends AppCompatActivity {
     private EditText examName;
     private DatabaseReference databaseReference;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_exam);
         deleteButton = findViewById(R.id.deleteExamButton);

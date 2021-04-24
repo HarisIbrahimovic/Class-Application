@@ -14,10 +14,7 @@ import android.view.View;
 
 import com.example.classapplication.SignIn.loginActivity;
 import com.example.classapplication.fragments.Examusers;
-import com.example.classapplication.fragments.UsersFragment;
-import com.example.classapplication.fragments.Exams;
 import com.example.classapplication.fragments.chatsFragment;
-import com.example.classapplication.fragments.tasksFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -83,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
         }
         ViewPagerAdapter  viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragment(new chatsFragment(),"Chats");
-        viewPagerAdapter.addFragment(new tasksFragment(),"Tasks");
         viewPagerAdapter.addFragment(new Examusers(),"Exams");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);

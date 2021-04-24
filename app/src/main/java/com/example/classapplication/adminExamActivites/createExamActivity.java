@@ -46,8 +46,8 @@ public class createExamActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String examName = course.getText().toString();
-                String courseName = name.getText().toString();
+                String courseName= course.getText().toString();
+                String examName = name.getText().toString();
                 String que1 = q1.getText().toString();
                 String que2 = q2.getText().toString();
                 String que3 = q3.getText().toString();
@@ -60,8 +60,9 @@ public class createExamActivity extends AppCompatActivity {
                     return;
                 }
 
-                    databaseReference = FirebaseDatabase.getInstance().getReference().child("Exams").child(examName);
+                    databaseReference = FirebaseDatabase.getInstance().getReference().child("Exams");
                     HashMap<String,String> exam = new HashMap<>();
+                    exam.put("name",examName);
                     exam.put("course",courseName);
                     exam.put("q1",que1);
                     exam.put("q2",que2);
@@ -69,11 +70,12 @@ public class createExamActivity extends AppCompatActivity {
                     exam.put("a1",anw1);
                     exam.put("a2",anw2);
                     exam.put("a3",anw3);
-                    databaseReference.setValue(exam).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    databaseReference.push().setValue(exam).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             Toast.makeText(getApplicationContext(),"Succesfully created",Toast.LENGTH_SHORT).show();
                             finish();
+                            return;
                         }
                     });
                     Toast.makeText(getApplicationContext(),"Problems..",Toast.LENGTH_SHORT).show();
