@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -89,15 +90,16 @@ public class SignUp extends AppCompatActivity {
                 databaseReference = FirebaseDatabase.getInstance().getReference("My Users").child(userId);
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("id",userId);
-                hashMap.put("username",name);
+                hashMap.put("username", Base64.encodeToString(name.getBytes(),Base64.DEFAULT));
                 hashMap.put("email",userEmail);
-                hashMap.put("password",userPass);
+                hashMap.put("password",Base64.encodeToString(userPass.getBytes(),Base64.DEFAULT));
                 hashMap.put("course",userCourse);
                 databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
                             progressDialog.dismiss();
+                            auth.signOut();
                             finish();
                         }else progressDialog.dismiss();
                     }

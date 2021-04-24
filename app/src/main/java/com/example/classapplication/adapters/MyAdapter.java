@@ -1,11 +1,12 @@
 package com.example.classapplication.adapters;
 
 import android.content.Context;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
+import java.util.Base64.Decoder;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,7 +37,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         user User = list.get(position);
-        holder.username.setText(User.getUsername());
+        byte[] decodedBytes = Base64.decode(User.getUsername().getBytes(),Base64.DEFAULT);
+
+        holder.username.setText(new String(decodedBytes));
         holder.email.setText(User.getEmail());
         holder.course.setText(User.getCourse());
     }
