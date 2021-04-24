@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ClassApplication">
-        <activity android:name=".authuser.modifyActivity"></activity>
+        <activity android:name=".authuser.displayAllUsersActivity"></activity>
+        <activity android:name=".authuser.modifyActivity" />
         <activity android:name=".authuser.deleteUser" />
         <activity android:name=".authuser.adminActivity" />
         <activity android:name=".SignIn.SignUp" />

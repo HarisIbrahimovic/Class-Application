@@ -57,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 this.fragments = new ArrayList<>();
                 this.titles = new ArrayList<>();
             }
-//test
-
 
             @NonNull
             @Override
