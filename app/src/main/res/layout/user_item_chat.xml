@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:gravity="center"
+    android:orientation="horizontal"
     android:background="@color/white"
     android:layout_margin="5dp"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test name"
-
+        android:text="UserName"
+        android:layout_margin="10dp"
         android:textSize="25sp"
-        android:id="@+id/testNameItem"
-/>
+        android:id="@+id/userNameChats"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="IT"
-
-
-        android:id="@+id/courseItem"
-        android:textSize="25sp"/>
+        android:text="CS"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:id="@+id/userCourseChats"
+     />
 
 </LinearLayout>
