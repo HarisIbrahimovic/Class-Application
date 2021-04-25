@@ -70,5 +70,6 @@
         android:background="@drawable/buttons"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
+        android:id="@+id/submitButton"
         android:text="Submit"/>
 </LinearLayout>
