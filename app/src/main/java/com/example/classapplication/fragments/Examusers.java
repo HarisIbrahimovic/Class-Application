@@ -25,36 +25,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class Examusers extends Fragment {
-    RecyclerView recyclerView;
-    DatabaseReference databaseReference;
-    MyAdapterExams myAdapter;
-    ArrayList<exam> list;
-
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-    private String mParam1;
-    private String mParam2;
-
-    public Examusers() {
-    }
-    public static Examusers newInstance(String param1, String param2) {
-        Examusers fragment = new Examusers();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+    private RecyclerView recyclerView;
+    private DatabaseReference databaseReference;
+    private MyAdapterExams myAdapter;
+    private ArrayList<exam> list;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,7 +37,6 @@ public class Examusers extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference("Exams");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-
         list = new ArrayList<>();
         myAdapter = new MyAdapterExams(getActivity().getApplicationContext(),list);
         recyclerView.setAdapter(myAdapter);
@@ -76,13 +49,10 @@ public class Examusers extends Fragment {
                 }
                 myAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
-
         return view;
     }
 }

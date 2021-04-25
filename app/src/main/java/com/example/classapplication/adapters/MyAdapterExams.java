@@ -23,21 +23,16 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 public class MyAdapterExams extends RecyclerView.Adapter<MyAdapterExams.MyViewHolder> {
     Context context;
     ArrayList<exam> list;
-
-
     public MyAdapterExams(Context context, ArrayList<exam> list) {
         this.context = context;
         this.list = list;
     }
-
     public Context getContext() {
         return context;
     }
-
     public ArrayList<exam> getList() {
         return list;
     }
-
     public static class MyViewHolder extends  RecyclerView.ViewHolder{
         TextView examName = itemView.findViewById(R.id.testNameItem);
         TextView courseName = itemView.findViewById(R.id.courseItem);
@@ -45,12 +40,10 @@ public class MyAdapterExams extends RecyclerView.Adapter<MyAdapterExams.MyViewHo
             super(itemView);
         }
     }
-
     @NonNull
     @Override
     public MyAdapterExams.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v  = LayoutInflater.from(context).inflate(R.layout.exam_item,parent,false);
-
         return new MyAdapterExams.MyViewHolder(v);
     }
 
@@ -72,11 +65,9 @@ public class MyAdapterExams extends RecyclerView.Adapter<MyAdapterExams.MyViewHo
                 intent.putExtra("a2",list.get(position).getA2());
                 intent.putExtra("a3",list.get(position).getA3());
                 context.startActivity(intent);
-
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return list.size();

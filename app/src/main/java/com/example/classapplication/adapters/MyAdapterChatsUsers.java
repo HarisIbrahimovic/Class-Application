@@ -23,22 +23,16 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 public class MyAdapterChatsUsers extends RecyclerView.Adapter<MyAdapterChatsUsers.MyViewHolder> {
     Context context;
     ArrayList<user> users;
-
-
     public MyAdapterChatsUsers(Context context, ArrayList<user> users) {
         this.context = context;
         this.users = users;
     }
-
     @NonNull
     @Override
     public MyAdapterChatsUsers.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v  = LayoutInflater.from(context).inflate(R.layout.user_item_chat,parent,false);
-
-
         return new MyViewHolder(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull MyAdapterChatsUsers.MyViewHolder holder, int position) {
         user User = users.get(position);
@@ -56,14 +50,11 @@ public class MyAdapterChatsUsers extends RecyclerView.Adapter<MyAdapterChatsUser
                 context.startActivity(intent);
             }
         });
-
     }
-
     @Override
     public int getItemCount() {
         return users.size();
     }
-
     public static class MyViewHolder extends  RecyclerView.ViewHolder{
         TextView userName = itemView.findViewById(R.id.userNameChats);
         TextView userCourse = itemView.findViewById(R.id.userCourseChats);
@@ -71,5 +62,4 @@ public class MyAdapterChatsUsers extends RecyclerView.Adapter<MyAdapterChatsUser
             super(itemView);
         }
     }
-
 }

@@ -19,36 +19,28 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     Context context;
     ArrayList<user> list;
-
     public MyAdapter(Context context, ArrayList<user> list) {
         this.context = context;
         this.list = list;
     }
-
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v  = LayoutInflater.from(context).inflate(R.layout.user_item,parent,false);
-
-
         return new MyViewHolder(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         user User = list.get(position);
         byte[] decodedBytes = Base64.decode(User.getUsername().getBytes(),Base64.DEFAULT);
-
         holder.username.setText(new String(decodedBytes));
         holder.email.setText(User.getEmail());
         holder.course.setText(User.getCourse());
     }
-
     @Override
     public int getItemCount() {
         return list.size();
     }
-
     public static class MyViewHolder extends  RecyclerView.ViewHolder{
         TextView username = itemView.findViewById(R.id.UserNameView);
         TextView email = itemView.findViewById(R.id.EmailView);

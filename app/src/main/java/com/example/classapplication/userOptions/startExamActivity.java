@@ -28,7 +28,6 @@ public class startExamActivity extends AppCompatActivity {
     private EditText A1, A2, A3;
     private Button submit;
     private int points;
-
     private DatabaseReference databaseReference;
     private FirebaseAuth auth;
     @Override
@@ -40,7 +39,6 @@ public class startExamActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String anw1 = A1.getText().toString();
                 String anw2 = A2.getText().toString();
                 String anw3 = A3.getText().toString();
@@ -53,7 +51,6 @@ public class startExamActivity extends AppCompatActivity {
             }
         });
     }
-
     private void getIncomingintent(){
         if(getIntent().hasExtra("name")&&getIntent().hasExtra("q1")&&
                 getIntent().hasExtra("q2")&&getIntent().hasExtra("q3")&&getIntent().hasExtra("a1")&&
@@ -67,13 +64,11 @@ public class startExamActivity extends AppCompatActivity {
              a3 = getIntent().getStringExtra("a3");
         }
     }
-
     void addPoints(String anw1,String anw2, String anw3){
         if(anw1.equals(a1))points+=5;
         if(anw2.equals(a2))points+=5;
         if(anw1.equals(a3))points+=5;
     }
-
     void configWidgets(){
         Name = findViewById(R.id.testName);
         Q1 = findViewById(R.id.Question1);
@@ -88,7 +83,6 @@ public class startExamActivity extends AppCompatActivity {
         Q3.setText(q3);
         submit = findViewById(R.id.submitButton);
     }
-
     void submitResults(){
         auth = FirebaseAuth.getInstance();
         String userEmail = auth.getCurrentUser().getEmail();

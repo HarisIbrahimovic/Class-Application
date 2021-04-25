@@ -37,12 +37,10 @@ public class messagingActivity extends AppCompatActivity {
     private String ReciverName;
     private FirebaseAuth auth;
     private ArrayList<message> messages;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messaging);
-
         getIncomingIntent();
         configWidgets();
         readMessages(senderId,reciverId);
@@ -58,8 +56,6 @@ public class messagingActivity extends AppCompatActivity {
                 Message.put("senderId",senderId);
                 databaseReference.push().setValue(Message);
                 message2.setText("");
-
-
             }
         });
     }
@@ -81,9 +77,6 @@ public class messagingActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
-
-
-
     }
     private void readMessages(String senderId2,String reciverId2){
         messages = new ArrayList<>();
@@ -98,11 +91,9 @@ public class messagingActivity extends AppCompatActivity {
                         messages.add(curMessage);
                   }
                     MyAdapterMessages myAdapterMessages = new MyAdapterMessages(messages,getApplicationContext());
-
                     recyclerView.setAdapter(myAdapterMessages);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
