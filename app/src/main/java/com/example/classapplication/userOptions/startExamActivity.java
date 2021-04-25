@@ -39,12 +39,14 @@ public class startExamActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                points=0;
                 String anw1 = A1.getText().toString();
                 String anw2 = A2.getText().toString();
                 String anw3 = A3.getText().toString();
                 if(TextUtils.isEmpty(anw1)||TextUtils.isEmpty(anw2)||TextUtils.isEmpty(anw3)){
                     Toast.makeText(getApplicationContext(),"Fill in the fields.",Toast.LENGTH_SHORT).show();
                     return;}
+                addPoints(anw1,anw2,anw3);
                 Toast.makeText(getApplicationContext(), "You have won "+points+" points", Toast.LENGTH_SHORT).show();
                 submitResults();
                 finish();
