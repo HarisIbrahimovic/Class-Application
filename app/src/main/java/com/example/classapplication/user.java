@@ -6,7 +6,6 @@ public class user {
     String username;
     String password;
     String email;
-
     public String getCourse() {
         return course;
     }
@@ -26,4 +25,5 @@ public class user {
     public String getEmail() {
         return email;
     }
+
 }
