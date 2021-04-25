@@ -54,7 +54,6 @@ public class modifyActivity extends AppCompatActivity {
                 String NewUsername = newUsername.getText().toString();
                 String NewCourse = newCourse.getText().toString();
                 modify(Email,Password,NewEmail,NewPassword,NewUsername,NewCourse);
-
             }
         });
     }

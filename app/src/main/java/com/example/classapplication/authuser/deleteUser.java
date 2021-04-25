@@ -20,7 +20,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class deleteUser extends AppCompatActivity {
-
     private Button deleteButton;
     private EditText email;
     private EditText passwrod;

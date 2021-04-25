@@ -19,11 +19,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class displayAllUsersActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
-    DatabaseReference databaseReference;
-    MyAdapter myAdapter;
-    ArrayList<user> list;
-
+    private RecyclerView recyclerView;
+    private DatabaseReference databaseReference;
+    private MyAdapter myAdapter;
+    private ArrayList<user> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +31,9 @@ public class displayAllUsersActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("My Users");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         list = new ArrayList<>();
         myAdapter = new MyAdapter(this,list);
         recyclerView.setAdapter(myAdapter);
-
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -46,10 +43,8 @@ public class displayAllUsersActivity extends AppCompatActivity {
                 }
                 myAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 
