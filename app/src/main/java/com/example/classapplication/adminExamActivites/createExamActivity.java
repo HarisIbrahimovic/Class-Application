@@ -3,6 +3,7 @@ package com.example.classapplication.adminExamActivites;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -29,7 +30,7 @@ public class createExamActivity extends AppCompatActivity {
     private EditText a2;
     private EditText a3;
     private DatabaseReference databaseReference;
-
+    private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +44,7 @@ public class createExamActivity extends AppCompatActivity {
         a1 = findViewById(R.id.examanw1);
         a2 = findViewById(R.id.examanw2);
         a3 = findViewById(R.id.examanw3);
+        progressDialog = new ProgressDialog(this);
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,28 +61,29 @@ public class createExamActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Fill in the fields",Toast.LENGTH_SHORT);
                     return;
                 }
-
-                    databaseReference = FirebaseDatabase.getInstance().getReference().child("Exams");
-                    HashMap<String,String> exam = new HashMap<>();
-                    exam.put("name",examName);
-                    exam.put("course",courseName);
-                    exam.put("q1",que1);
-                    exam.put("q2",que2);
-                    exam.put("q3",que3);
-                    exam.put("a1",anw1);
-                    exam.put("a2",anw2);
-                    exam.put("a3",anw3);
-                    databaseReference.push().setValue(exam).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
+                progressDialog.setMessage("Processing");
+                progressDialog.show();
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("Exams");
+                HashMap<String,String> exam = new HashMap<>();
+                exam.put("name",examName);
+                exam.put("course",courseName);
+                exam.put("q1",que1);
+                exam.put("q2",que2);
+                exam.put("q3",que3);
+                exam.put("a1",anw1);
+                exam.put("a2",anw2);
+                exam.put("a3",anw3);
+                databaseReference.push().setValue(exam).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
                             Toast.makeText(getApplicationContext(),"Succesfully created",Toast.LENGTH_SHORT).show();
-                            finish();
-                            return;
+                            finish();}
+                        else{
+                                Toast.makeText(getApplicationContext(),"Problems..",Toast.LENGTH_SHORT).show();
+                        }
                         }
                     });
-                    Toast.makeText(getApplicationContext(),"Problems..",Toast.LENGTH_SHORT).show();
-
-
             }
         });
 

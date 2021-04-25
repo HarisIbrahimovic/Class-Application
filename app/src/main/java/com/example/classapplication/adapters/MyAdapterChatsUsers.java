@@ -1,6 +1,7 @@
 package com.example.classapplication.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.classapplication.R;
 import com.example.classapplication.user;
+import com.example.classapplication.userOptions.messagingActivity;
+import com.example.classapplication.userOptions.startExamActivity;
 
 import java.util.ArrayList;
+
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class MyAdapterChatsUsers extends RecyclerView.Adapter<MyAdapterChatsUsers.MyViewHolder> {
     Context context;
@@ -40,6 +45,17 @@ public class MyAdapterChatsUsers extends RecyclerView.Adapter<MyAdapterChatsUser
         byte[] decodedBytes = Base64.decode(User.getUsername().getBytes(),Base64.DEFAULT);
         holder.userName.setText(new String(decodedBytes));
         holder.userCourse.setText(User.getCourse());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, messagingActivity.class);
+                intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
+                byte[] decodedBytes = Base64.decode(users.get(position).getUsername().getBytes(),Base64.DEFAULT);
+                intent.putExtra("username",new String(decodedBytes));
+                intent.putExtra("id",users.get(position).getId());
+                context.startActivity(intent);
+            }
+        });
 
     }
 

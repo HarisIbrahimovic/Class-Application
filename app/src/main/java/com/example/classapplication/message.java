@@ -5,6 +5,11 @@ public class message {
     String reciverId;
     String senderId;
     String content;
+    int position;
+
+    public int getPosition() {
+        return position;
+    }
 
     public String getReciverId() {
         return reciverId;

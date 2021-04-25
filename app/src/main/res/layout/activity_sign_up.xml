@@ -57,6 +57,7 @@
         android:textSize="20sp"
         android:layout_margin="10dp"
         android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:hint="Course (IT or CS)"
         android:padding="10dp"
         android:id="@+id/course"/>
