@@ -1,6 +1,7 @@
 package com.example.classapplication.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.classapplication.R;
 import com.example.classapplication.exam;
 import com.example.classapplication.user;
+import com.example.classapplication.userOptions.startExamActivity;
 
 import java.util.ArrayList;
+
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class MyAdapterExams extends RecyclerView.Adapter<MyAdapterExams.MyViewHolder> {
     Context context;
@@ -55,9 +59,22 @@ public class MyAdapterExams extends RecyclerView.Adapter<MyAdapterExams.MyViewHo
         exam Exam = list.get(position);
         holder.courseName.setText(Exam.getCourse());
         holder.examName.setText(Exam.getName());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, startExamActivity.class);
+                intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("name",list.get(position).getName());
+                intent.putExtra("q1",list.get(position).getQ1());
+                intent.putExtra("q2",list.get(position).getQ2());
+                intent.putExtra("q3",list.get(position).getQ3());
+                intent.putExtra("a1",list.get(position).getA1());
+                intent.putExtra("a2",list.get(position).getA2());
+                intent.putExtra("a3",list.get(position).getA3());
+                context.startActivity(intent);
 
-
-
+            }
+        });
     }
 
     @Override
