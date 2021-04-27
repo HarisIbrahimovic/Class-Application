@@ -73,7 +73,7 @@ public class createExamActivity extends AppCompatActivity {
                 exam.put("a1",anw1);
                 exam.put("a2",anw2);
                 exam.put("a3",anw3);
-                databaseReference.push().setValue(exam).addOnCompleteListener(new OnCompleteListener<Void>() {
+                databaseReference.child(examName).setValue(exam).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){

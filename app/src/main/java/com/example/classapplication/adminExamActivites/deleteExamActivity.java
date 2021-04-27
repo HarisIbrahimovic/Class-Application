@@ -33,11 +33,13 @@ public class deleteExamActivity extends AppCompatActivity {
                 databaseReference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(getApplicationContext(),"Succesfully deleted.",Toast.LENGTH_SHORT).show();
-                        finish();
+                        if(task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(), "Succesfully deleted.", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
                     }
                 });
-                Toast.makeText(getApplicationContext(),"Test does not exist.",Toast.LENGTH_SHORT).show();
+
             }
         });
     }
